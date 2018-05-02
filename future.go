@@ -6,12 +6,6 @@ import (
 	"time"
 )
 
-// built from Futures
-type Promise interface {
-	OnSuccess()
-	OnFailure()
-}
-
 // Runnable is a function that can later be executed
 type Runnable func() interface{}
 
@@ -58,8 +52,7 @@ func (p *Pool) process() {
 
 func (p *Pool) execute() {
 	for futureChan := range p.executor {
-		f := <-futureChan
-		f()
+		// TODO: do things
 	}
 }
 
